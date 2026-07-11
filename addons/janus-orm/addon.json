@@ -1,0 +1,29 @@
+{
+  "slug": "janus-orm",
+  "version": "1.0.0",
+  "name": "Janus ORM Specialist",
+  "description": "Especialista no ORM Janus (Delphi, por Isaque Pinheiro) sobre o DataEngine — decoração de entidades, CRUD genérico, PK composta, associações/cascade, JSON (TJanusJson), geração de DML por dialeto e leitura/escrita ao vivo contra Firebird. Estuda Examples + Source antes de afirmar; cita arquivo:linha; nunca inventa.",
+  "type": "command",
+  "trust": "official",
+  "author": "Isaque Pinheiro",
+  "requirements": {
+    "aefos_version": ">=0.30.0"
+  },
+  "command": "/janus",
+  "install": {
+    "commands": [
+      {
+        "target_path": "commands/janus/",
+        "source": "addons/janus-orm/command/",
+        "name": "janus"
+      }
+    ],
+    "skills": [
+      {
+        "target_path": "skills/delphi-janus-specialist/",
+        "source": "addons/janus-orm/skill/",
+        "name": "delphi-janus-specialist"
+      }
+    ]
+  }
+}

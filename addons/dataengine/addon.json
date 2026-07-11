@@ -1,0 +1,29 @@
+{
+  "slug": "dataengine",
+  "version": "1.0.0",
+  "name": "DataEngine Specialist",
+  "description": "Especialista no DataEngine (Delphi, por Isaque Pinheiro) — a camada de acesso a dados DESACOPLADA sobre FireDAC/UniDAC/Zeos/etc. via IDBConnection/IDBDataSet, com TDriverName como enum canônico de driver, execução de SQL, datasets/resultsets, transações e integração com o Janus ORM. Estuda o Source antes de afirmar; cita arquivo:linha; nunca inventa.",
+  "type": "command",
+  "trust": "official",
+  "author": "Isaque Pinheiro",
+  "requirements": {
+    "aefos_version": ">=0.30.0"
+  },
+  "command": "/dataengine",
+  "install": {
+    "commands": [
+      {
+        "target_path": "commands/dataengine/",
+        "source": "addons/dataengine/command/",
+        "name": "dataengine"
+      }
+    ],
+    "skills": [
+      {
+        "target_path": "skills/delphi-dataengine-specialist/",
+        "source": "addons/dataengine/skill/",
+        "name": "delphi-dataengine-specialist"
+      }
+    ]
+  }
+}

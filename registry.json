@@ -1,0 +1,122 @@
+{
+  "schema": 1,
+  "addons": [
+    {
+      "slug": "janus-orm",
+      "name": "Janus ORM Specialist",
+      "version": "1.0.0",
+      "description": "Especialista no ORM Janus (Delphi, por Isaque Pinheiro) sobre o DataEngine — decoração de entidades, CRUD genérico, PK composta, associações/cascade, JSON (TJanusJson), geração de DML por dialeto e leitura/escrita ao vivo contra Firebird. Estuda Examples + Source antes de afirmar; cita arquivo:linha; nunca inventa.",
+      "type": "command",
+      "trust": "official",
+      "url": "https://github.com/ModernDelphiWorks/Aefos-Addons/releases/download/v1.0.0/janus-orm-1.0.0.zip",
+      "sha256": "8440be29ee2c3b77428778bf846a5085b1aa23333ec3926df0bf183704916e03",
+      "requirements": {
+        "aefos_version": ">=0.30.0"
+      }
+    },
+    {
+      "slug": "nidus",
+      "name": "Nidus Specialist",
+      "version": "1.0.0",
+      "description": "Especialista no framework Nidus (Delphi, por Isaque Pinheiro) — DI modular inspirado em NestJS sobre o Horse. Módulos (Binds/ExportedBinds/Imports/Routes/RouteHandlers), escopos de bind (Singleton/SingletonLazy/Factory/SingletonInterface), injeção por construtor via RTTI, roteamento dinâmico (parâmetro só na cauda), controllers (TRouteHandlerHorse), guards (TRouteMiddleware), pipes de validação (Body/Param/Query) e bootstrap (.dpr). Estuda o exemplo funcional + o Source antes de afirmar; cita arquivo:linha; nunca inventa.",
+      "type": "command",
+      "trust": "official",
+      "url": "https://github.com/ModernDelphiWorks/Aefos-Addons/releases/download/v1.0.0/nidus-1.0.0.zip",
+      "sha256": "cfc448923e3f7789bd86fbabb01c1714f6b7cfe9ee08b5f91c5afeb111880dd8",
+      "requirements": {
+        "aefos_version": ">=0.30.0"
+      }
+    },
+    {
+      "slug": "dataengine",
+      "name": "DataEngine Specialist",
+      "version": "1.0.0",
+      "description": "Especialista no DataEngine (Delphi, por Isaque Pinheiro) — a camada de acesso a dados DESACOPLADA sobre FireDAC/UniDAC/Zeos/etc. via IDBConnection/IDBDataSet, com TDriverName como enum canônico de driver, execução de SQL, datasets/resultsets, transações e integração com o Janus ORM. Estuda o Source antes de afirmar; cita arquivo:linha; nunca inventa.",
+      "type": "command",
+      "trust": "official",
+      "url": "https://github.com/ModernDelphiWorks/Aefos-Addons/releases/download/v1.0.0/dataengine-1.0.0.zip",
+      "sha256": "d39d81f741e4265e2371a51b5ad0839ffdaa9c996464ad7a6574e4fb8528c552",
+      "requirements": {
+        "aefos_version": ">=0.30.0"
+      }
+    },
+    {
+      "slug": "fluentsql",
+      "name": "FluentSQL Specialist",
+      "version": "1.0.0",
+      "description": "Especialista no FluentSQL (Delphi, por Isaque Pinheiro) — DSL fluente para gerar SQL/MQL avulso (fora do CRUD automático do Janus), com qualificadores por dialeto. Monta SELECT/INSERT/UPDATE/DELETE, joins, paginação (FIRST/SKIP · LIMIT/OFFSET · ROW_NUMBER · ROWNUM), CASE, subqueries, funções e fragmentos específicos de dialeto. Estuda Source + Test Delphi antes de afirmar; cita arquivo:linha; nunca inventa nomes de API.",
+      "type": "command",
+      "trust": "official",
+      "url": "https://github.com/ModernDelphiWorks/Aefos-Addons/releases/download/v1.0.0/fluentsql-1.0.0.zip",
+      "sha256": "416b87e5286a3813051143810d3ba093040aef9fede635eaa5156d5387a9960f",
+      "requirements": {
+        "aefos_version": ">=0.30.0"
+      }
+    },
+    {
+      "slug": "jsonflow",
+      "name": "JsonFlow Specialist",
+      "version": "1.0.0",
+      "description": "Especialista no framework JsonFlow (Delphi, por Isaque Pinheiro) — o JSON padrão de todo o ecossistema. Parse/emit, composição dinâmica in-place por path, serialização objeto⇄JSON via RTTI + atributos, middlewares de evento (get/set) e validação de JSON Schema Draft 7 (com $ref e validadores de formato, inclusive brasileiros). Estuda Source + Examples antes de afirmar; cita arquivo:linha; nunca inventa API.",
+      "type": "command",
+      "trust": "official",
+      "url": "https://github.com/ModernDelphiWorks/Aefos-Addons/releases/download/v1.0.0/jsonflow-1.0.0.zip",
+      "sha256": "7221db85ccc93e35a9eabbd2229fda2b94491d86b603241195b32da4507cf56a",
+      "requirements": {
+        "aefos_version": ">=0.30.0"
+      }
+    },
+    {
+      "slug": "modernsyntax",
+      "name": "ModernSyntax Specialist",
+      "version": "1.0.0",
+      "description": "Especialista no ModernSyntax (Delphi, por Isaque Pinheiro) — toolkit de programação funcional e sintaxe moderna — null-safety (TOption<T>), railway-oriented (TResultPair<S,F> com Success/Failure/When), pattern matching (TMatch<T>) e .env (TDotEnv). Estuda Source + Test Delphi antes de afirmar; cita arquivo:linha; nunca inventa.",
+      "type": "command",
+      "trust": "official",
+      "url": "https://github.com/ModernDelphiWorks/Aefos-Addons/releases/download/v1.0.0/modernsyntax-1.0.0.zip",
+      "sha256": "cb88df8aa99c136efba33c81684c6d4e4202f4321fd4a241a618c29bb7c1a4d3",
+      "requirements": {
+        "aefos_version": ">=0.30.0"
+      }
+    },
+    {
+      "slug": "metadbdiff",
+      "name": "MetaDbDiff Specialist",
+      "version": "1.0.0",
+      "description": "Especialista no MetaDbDiff (Delphi, por Isaque Pinheiro) — a camada de atributos de mapeamento ORM ([Entity]/[Table]/[Column]/[PrimaryKey]/[ForeignKey]/[Association]/[JoinColumn]/[Dictionary]/[Restrictions]/[OrderBy]/[Sequence]/[Indexe]/[Check]/[Enumeration]/[CascadeActions]), os helpers RTTI que leem esse mapeamento e o motor de diff/migração de schema (modelo↔banco e banco↔banco, geração de DDL cirúrgica por dialeto). É a base que o Janus consome. Estuda Source + Examples antes de afirmar; cita arquivo:linha; nunca inventa.",
+      "type": "command",
+      "trust": "official",
+      "url": "https://github.com/ModernDelphiWorks/Aefos-Addons/releases/download/v1.0.0/metadbdiff-1.0.0.zip",
+      "sha256": "05fcf18d9d2aa3166ed039340eb525a105c67d45224992323961080774ee25fb",
+      "requirements": {
+        "aefos_version": ">=0.30.0"
+      }
+    },
+    {
+      "slug": "injectcontainer",
+      "name": "InjectContainer Specialist",
+      "version": "1.0.0",
+      "description": "Especialista no InjectContainer (Delphi, por Isaque Pinheiro) — o container de injeção de dependência (DI) thread-safe que sustenta o Nidus. Cobre registro/resolução de binds (Singleton/SingletonLazy/Factory/SingletonInterface/AddInstance/AddInject), injeção automática por construtor (RTTI), escopo de injectors (root/filho/irmão), resolução por classe (nome) vs interface (GUID) e detecção de dependência circular. Estuda Source + Test antes de afirmar; cita arquivo:linha; nunca inventa.",
+      "type": "command",
+      "trust": "official",
+      "url": "https://github.com/ModernDelphiWorks/Aefos-Addons/releases/download/v1.0.0/injectcontainer-1.0.0.zip",
+      "sha256": "6c5bd7646c0d3b36d5f71ed8c329376cc53e481e4a107de9b23028b67a034887",
+      "requirements": {
+        "aefos_version": ">=0.30.0"
+      }
+    },
+    {
+      "slug": "colligo",
+      "name": "Colligo Specialist",
+      "version": "1.0.0",
+      "description": "Especialista no Colligo (Delphi/Lazarus, por Isaque Pinheiro) — coleções fluentes estilo LINQ-to-Objects com lazy evaluation. Consultas declarativas sobre arrays/listas/dicionários (Where/Select/OrderBy/GroupBy/Join/Distinct/SelectMany/Skip/Take/Chunk + agregações), o provider SQL IColligoQueryable<T> sobre FluentSQL/DataEngine, e o record helper TColligoString. Estuda README + Source + \"Test Delphi\" antes de afirmar; cita arquivo:linha; nunca inventa nomes de operadores.",
+      "type": "command",
+      "trust": "official",
+      "url": "https://github.com/ModernDelphiWorks/Aefos-Addons/releases/download/v1.0.0/colligo-1.0.0.zip",
+      "sha256": "ccfcfd20065644fdd1fe8433e06e53388d2b0230f999d3d8994ff94251350d7d",
+      "requirements": {
+        "aefos_version": ">=0.30.0"
+      }
+    }
+  ]
+}

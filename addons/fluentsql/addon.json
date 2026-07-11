@@ -1,0 +1,29 @@
+{
+  "slug": "fluentsql",
+  "version": "1.0.0",
+  "name": "FluentSQL Specialist",
+  "description": "Especialista no FluentSQL (Delphi, por Isaque Pinheiro) — DSL fluente para gerar SQL/MQL avulso (fora do CRUD automático do Janus), com qualificadores por dialeto. Monta SELECT/INSERT/UPDATE/DELETE, joins, paginação (FIRST/SKIP · LIMIT/OFFSET · ROW_NUMBER · ROWNUM), CASE, subqueries, funções e fragmentos específicos de dialeto. Estuda Source + Test Delphi antes de afirmar; cita arquivo:linha; nunca inventa nomes de API.",
+  "type": "command",
+  "trust": "official",
+  "author": "Isaque Pinheiro",
+  "requirements": {
+    "aefos_version": ">=0.30.0"
+  },
+  "command": "/fluentsql",
+  "install": {
+    "commands": [
+      {
+        "target_path": "commands/fluentsql/",
+        "source": "addons/fluentsql/command/",
+        "name": "fluentsql"
+      }
+    ],
+    "skills": [
+      {
+        "target_path": "skills/delphi-fluentsql-specialist/",
+        "source": "addons/fluentsql/skill/",
+        "name": "delphi-fluentsql-specialist"
+      }
+    ]
+  }
+}

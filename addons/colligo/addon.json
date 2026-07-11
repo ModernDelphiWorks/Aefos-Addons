@@ -1,0 +1,29 @@
+{
+  "slug": "colligo",
+  "version": "1.0.0",
+  "name": "Colligo Specialist",
+  "description": "Especialista no Colligo (Delphi/Lazarus, por Isaque Pinheiro) — coleções fluentes estilo LINQ-to-Objects com lazy evaluation. Consultas declarativas sobre arrays/listas/dicionários (Where/Select/OrderBy/GroupBy/Join/Distinct/SelectMany/Skip/Take/Chunk + agregações), o provider SQL IColligoQueryable<T> sobre FluentSQL/DataEngine, e o record helper TColligoString. Estuda README + Source + \"Test Delphi\" antes de afirmar; cita arquivo:linha; nunca inventa nomes de operadores.",
+  "type": "command",
+  "trust": "official",
+  "author": "Isaque Pinheiro",
+  "requirements": {
+    "aefos_version": ">=0.30.0"
+  },
+  "command": "/colligo",
+  "install": {
+    "commands": [
+      {
+        "target_path": "commands/colligo/",
+        "source": "addons/colligo/command/",
+        "name": "colligo"
+      }
+    ],
+    "skills": [
+      {
+        "target_path": "skills/delphi-colligo-specialist/",
+        "source": "addons/colligo/skill/",
+        "name": "delphi-colligo-specialist"
+      }
+    ]
+  }
+}

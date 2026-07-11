@@ -1,0 +1,29 @@
+{
+  "slug": "modernsyntax",
+  "version": "1.0.0",
+  "name": "ModernSyntax Specialist",
+  "description": "Especialista no ModernSyntax (Delphi, por Isaque Pinheiro) — toolkit de programação funcional e sintaxe moderna — null-safety (TOption<T>), railway-oriented (TResultPair<S,F> com Success/Failure/When), pattern matching (TMatch<T>) e .env (TDotEnv). Estuda Source + Test Delphi antes de afirmar; cita arquivo:linha; nunca inventa.",
+  "type": "command",
+  "trust": "official",
+  "author": "Isaque Pinheiro",
+  "requirements": {
+    "aefos_version": ">=0.30.0"
+  },
+  "command": "/modernsyntax",
+  "install": {
+    "commands": [
+      {
+        "target_path": "commands/modernsyntax/",
+        "source": "addons/modernsyntax/command/",
+        "name": "modernsyntax"
+      }
+    ],
+    "skills": [
+      {
+        "target_path": "skills/delphi-modernsyntax-specialist/",
+        "source": "addons/modernsyntax/skill/",
+        "name": "delphi-modernsyntax-specialist"
+      }
+    ]
+  }
+}
