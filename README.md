@@ -18,17 +18,18 @@ this README is the contract.
 
 ## What an addon is
 
-An addon is a small bundle whose entry point is a global **slash command**
-(`/janus`, `/mvc`, …). When you type it in Aefos chat, the command's prompt
-tells the model to read the bundled **skill** and its **OKF** knowledge, turning
-the assistant into a specialist. Addons can also ship an **MCP server** or a
-**tool**.
+An addon is a small bundle whose entry point is usually a global **slash
+command** (`/janus`, `/mvc`, …). When you type it in Aefos chat, the command's
+prompt tells the model to read the bundled **skill** and its **OKF** knowledge,
+turning the assistant into a specialist. Addons can also ship an **MCP server**,
+a **tool**, or a **project template**.
 
 | Type | Needs OKF? | Ships | What it does |
 |------|-----------|-------|--------------|
 | `command` | **yes** | `command/` + `skill/okf/` | a domain specialist (e.g. an ORM, a framework, a workflow) |
 | `mcp` | no | an `mcpServers` fragment | a Model Context Protocol server (its tools self-describe) |
 | `tool` | no | a runnable tool (e.g. Python) | a callable capability |
+| `template` | no | a `template/` scaffold | a project/code template you can generate and customise (e.g. an MVC layout) |
 
 > **Why the OKF rule?** OKF ([Open Knowledge Format](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md))
 > is knowledge *for the model to read*. A `command`/`skill` is knowledge, so it
@@ -53,7 +54,8 @@ addons/<slug>/
 │       └── playbooks/         # index.md (no frontmatter) + guides
 ├── mcp/                       # mcp addons only
 │   └── server.json            # one `mcpServers` entry, keyed by slug
-└── tools/                     # tool addons only
+├── tools/                     # tool addons only
+└── template/                  # template addons only — the scaffold to generate
 ```
 
 Only `addon.json` is mandatory; include the folders your addon type needs.
@@ -84,7 +86,8 @@ Only `addon.json` is mandatory; include the folders your addon type needs.
 
 - **`install`** maps each bundle folder (`source`, repo-relative) to where it
   lands under the user's `~/.aefos/` (`target_path`). Keys are by kind:
-  `commands` / `skills` / `tools` / `mcp`.
+  `commands` / `skills` / `tools` / `mcp` / `templates`. A `template` addon, for
+  example, maps `addons/<slug>/template/` → `templates/<slug>/`.
 - **`command`** is the chat trigger. The `COMMAND.md` frontmatter `name` **must
   equal** the command folder name (so `commands/janus/COMMAND.md` → `name: janus`
   → `/janus`).
