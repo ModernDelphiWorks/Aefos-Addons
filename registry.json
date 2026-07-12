@@ -4,12 +4,12 @@
     {
       "slug": "janus-orm",
       "name": "Janus ORM Specialist",
-      "version": "1.0.1",
+      "version": "1.0.0",
       "description": "Especialista no ORM Janus (Delphi, por Isaque Pinheiro) sobre o DataEngine — decoração de entidades, CRUD genérico, PK composta, associações/cascade, JSON (TJanusJson), geração de DML por dialeto e leitura/escrita ao vivo contra Firebird. Estuda Examples + Source antes de afirmar; cita arquivo:linha; nunca inventa.",
       "type": "command",
       "trust": "official",
-      "url": "https://github.com/ModernDelphiWorks/Aefos-Addons/releases/download/v1.0.1/janus-orm-1.0.1.zip",
-      "sha256": "43e2cf67e4776cd55b0409c424d54663698b6cb7561b9796811c75e1ac3ec53f",
+      "url": "https://github.com/ModernDelphiWorks/Aefos-Addons/releases/download/v1.0.0/janus-orm-1.0.0.zip",
+      "sha256": "8440be29ee2c3b77428778bf846a5085b1aa23333ec3926df0bf183704916e03",
       "requirements": {
         "aefos_version": ">=0.30.0"
       }
