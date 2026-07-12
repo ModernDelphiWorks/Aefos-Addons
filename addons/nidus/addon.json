@@ -1,6 +1,6 @@
 {
   "slug": "nidus",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "Nidus Specialist",
   "description": "Especialista no framework Nidus (Delphi, por Isaque Pinheiro) — DI modular inspirado em NestJS sobre o Horse. Módulos (Binds/ExportedBinds/Imports/Routes/RouteHandlers), escopos de bind (Singleton/SingletonLazy/Factory/SingletonInterface), injeção por construtor via RTTI, roteamento dinâmico (parâmetro só na cauda), controllers (TRouteHandlerHorse), guards (TRouteMiddleware), pipes de validação (Body/Param/Query) e bootstrap (.dpr). Estuda o exemplo funcional + o Source antes de afirmar; cita arquivo:linha; nunca inventa.",
   "type": "command",

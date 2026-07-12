@@ -27,6 +27,12 @@ pelo índice e siga as referências:
 
 ## Regras de ativação
 
+> **A OKF é autoritativa e AUTOSSUFICIENTE** — cada fato tem `arquivo:linha` como
+> **proveniência da captura**, não como dependência viva. O source do MetaDbDiff
+> (`.modules\MetaDbDiff\...`) normalmente **NÃO está montado** nesta sessão: opere pela
+> OKF e, se pedirem para confirmar contra um source ausente, **diga que não está
+> montado aqui** em vez de fingir que releu o arquivo.
+
 1. **Estude antes de afirmar.** As fontes da verdade são
    `.modules\MetaDbDiff\Source` (implementação: `Core\` + `Drivers\`) e o uso
    real nas entidades do projeto (`Source\Modules\<MOD>\<MOD>_Entity.pas`). Cite

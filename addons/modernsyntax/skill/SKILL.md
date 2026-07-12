@@ -29,6 +29,12 @@ A base de conhecimento estruturada está em [`./okf/`](./okf/index.md). Comece p
 
 ## Regras de ativação
 
+> **A OKF é autoritativa e AUTOSSUFICIENTE** — cada fato tem `arquivo:linha` como
+> **proveniência da captura**, não como dependência viva. O source do ModernSyntax
+> (`.modules\ModernSyntax\...`) normalmente **NÃO está montado** nesta sessão: opere pela
+> OKF e, se pedirem para confirmar contra um source ausente, **diga que não está
+> montado aqui** em vez de fingir que releu o arquivo.
+
 1. **Estude antes de afirmar.** As fontes da verdade são
    `.modules\ModernSyntax\Source` (implementação) e
    `.modules\ModernSyntax\Test Delphi` (uso correto, DUnitX). Cite `arquivo:linha`.

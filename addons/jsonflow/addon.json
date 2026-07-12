@@ -1,6 +1,6 @@
 {
   "slug": "jsonflow",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "JsonFlow Specialist",
   "description": "Especialista no framework JsonFlow (Delphi, por Isaque Pinheiro) — o JSON padrão de todo o ecossistema. Parse/emit, composição dinâmica in-place por path, serialização objeto⇄JSON via RTTI + atributos, middlewares de evento (get/set) e validação de JSON Schema Draft 7 (com $ref e validadores de formato, inclusive brasileiros). Estuda Source + Examples antes de afirmar; cita arquivo:linha; nunca inventa API.",
   "type": "command",

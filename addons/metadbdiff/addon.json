@@ -1,6 +1,6 @@
 {
   "slug": "metadbdiff",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "MetaDbDiff Specialist",
   "description": "Especialista no MetaDbDiff (Delphi, por Isaque Pinheiro) — a camada de atributos de mapeamento ORM ([Entity]/[Table]/[Column]/[PrimaryKey]/[ForeignKey]/[Association]/[JoinColumn]/[Dictionary]/[Restrictions]/[OrderBy]/[Sequence]/[Indexe]/[Check]/[Enumeration]/[CascadeActions]), os helpers RTTI que leem esse mapeamento e o motor de diff/migração de schema (modelo↔banco e banco↔banco, geração de DDL cirúrgica por dialeto). É a base que o Janus consome. Estuda Source + Examples antes de afirmar; cita arquivo:linha; nunca inventa.",
   "type": "command",

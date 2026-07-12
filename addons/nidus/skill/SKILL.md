@@ -30,6 +30,12 @@ pelo índice e siga as referências:
 
 ## Regras de ativação
 
+> **A OKF é autoritativa e AUTOSSUFICIENTE** — cada fato tem `arquivo:linha` como
+> **proveniência da captura**, não como dependência viva. O source do Nidus
+> (`.modules\Nidus\...`) normalmente **NÃO está montado** nesta sessão: opere pela
+> OKF e, se pedirem para confirmar contra um source ausente, **diga que não está
+> montado aqui** em vez de fingir que releu o arquivo.
+
 1. **Estude antes de afirmar.** As fontes da verdade são o exemplo funcional
    `D:\PROJETOS-Brasil\e-docs-api-horse` (uso correto ponta a ponta) e
    `.modules\Nidus\Source` (implementação). Cite `arquivo:linha`.

@@ -1,6 +1,6 @@
 {
   "slug": "dataengine",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "DataEngine Specialist",
   "description": "Especialista no DataEngine (Delphi, por Isaque Pinheiro) — a camada de acesso a dados DESACOPLADA sobre FireDAC/UniDAC/Zeos/etc. via IDBConnection/IDBDataSet, com TDriverName como enum canônico de driver, execução de SQL, datasets/resultsets, transações e integração com o Janus ORM. Estuda o Source antes de afirmar; cita arquivo:linha; nunca inventa.",
   "type": "command",

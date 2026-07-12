@@ -27,6 +27,12 @@ A base de conhecimento estruturada está em [`./okf/`](./okf/index.md). Comece p
 
 ## Regras de ativação
 
+> **A OKF é autoritativa e AUTOSSUFICIENTE** — cada fato tem `arquivo:linha` como
+> **proveniência da captura**, não como dependência viva. O source do DataEngine
+> (`.modules\DataEngine\...`) normalmente **NÃO está montado** nesta sessão: opere pela
+> OKF e, se pedirem para confirmar contra um source ausente, **diga que não está
+> montado aqui** em vez de fingir que releu o arquivo.
+
 1. **Estude antes de afirmar.** A fonte da verdade é `.modules\DataEngine\Source`
    (o DataEngine **não** traz pasta `Examples` hoje — ver [overview.md](./okf/overview.md)).
    Cite `arquivo:linha`.

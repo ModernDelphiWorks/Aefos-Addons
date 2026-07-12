@@ -1,6 +1,6 @@
 {
   "slug": "injectcontainer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "InjectContainer Specialist",
   "description": "Especialista no InjectContainer (Delphi, por Isaque Pinheiro) — o container de injeção de dependência (DI) thread-safe que sustenta o Nidus. Cobre registro/resolução de binds (Singleton/SingletonLazy/Factory/SingletonInterface/AddInstance/AddInject), injeção automática por construtor (RTTI), escopo de injectors (root/filho/irmão), resolução por classe (nome) vs interface (GUID) e detecção de dependência circular. Estuda Source + Test antes de afirmar; cita arquivo:linha; nunca inventa.",
   "type": "command",
