@@ -60,6 +60,36 @@ addons/<slug>/
 
 Only `addon.json` is mandatory; include the folders your addon type needs.
 
+### The installed skill layout (`~/.aefos/skills/<addon-slug>/`)
+
+For a `command`/`skill` addon, the `skill/` portion of the bundle installs under
+the user's `~/.aefos/skills/<addon-slug>/` and follows the OKF
+([Open Knowledge Format](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md))
+layout below. Each entry is tagged **(required)** or **(optional)**:
+
+```
+~/.aefos/skills/<addon-slug>/
+├── SKILL.md            (required)  — trigger/activation file for the skill in Aefos
+└── okf/                (required)  — OKF knowledge directory (universal across projects)
+    ├── index.md        (required)  — main navigation index (carries okf_version)
+    ├── log.md          (required)  — chronological update history (no frontmatter)
+    ├── overview.md     (optional)  — introduction and high-level overview
+    ├── api.md          (optional)  — technical specs: APIs, MCPs or commands
+    ├── rules.md        (optional)  — rules, conventions and constraints for the AI
+    └── playbooks/       (optional)  — step-by-step practical guides
+        ├── index.md          (optional) — subfolder index (no frontmatter)
+        ├── troubleshooting.md (optional) — how to resolve common errors
+        └── quickstart.md      (optional) — quick-start guide
+```
+
+**Required for a command/skill addon:** `SKILL.md`, `okf/`, `okf/index.md`,
+`okf/log.md`. **Everything else is optional** — recommended for quality, but an
+addon is valid without them.
+
+Note this is only the `skill/` portion. The `command/COMMAND.md` (the `/trigger`)
+and the `addon.json` manifest **remain required at the bundle root** as documented
+above — this tree does not replace them.
+
 ### `addon.json`
 
 ```json
