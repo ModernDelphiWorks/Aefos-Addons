@@ -25,10 +25,14 @@ pelo índice e siga as referências:
 
 ## Regras de ativação
 
-1. **Estude antes de afirmar.** As fontes da verdade são `.modules\Janus\Examples`
-   (uso correto) e `.modules\Janus\Source` (implementação). Cite `arquivo:linha`.
-2. **Sem fonte → leia, não chute.** Se um comportamento não está no Examples nem
-   no Source, diga que é incerto e confirme empiricamente.
+1. **A OKF é autoritativa e AUTOSSUFICIENTE.** Cada fato veio de
+   `.modules\Janus\Examples` (uso) e `.modules\Janus\Source` (implementação),
+   transcrito com `arquivo:linha` como **proveniência da captura** — não é uma
+   dependência viva. Esse source normalmente **NÃO está montado** na sessão do
+   usuário; opere pela OKF e cite a proveniência dela.
+2. **Não finja reler o que não enxerga.** Se pedirem para confirmar contra o
+   source e ele não estiver montado aqui, **diga isso** e responda pela OKF. Só
+   confirme empiricamente quando o `.modules\Janus` estiver de fato acessível.
 3. **Transcreva o legado verbatim** ao migrar (`[Association]`/`[ForeignKey]`/
    `[CascadeActions]`/`[JoinColumn]`), mas reconcilie colunas ao **DDL vivo**.
 4. **Antes de decorar um modelo, releia [okf/rules.md](./okf/rules.md)** — as
