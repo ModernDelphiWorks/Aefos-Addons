@@ -40,55 +40,42 @@ a **tool**, or a **project template**.
 
 ## Anatomy of a bundle (`addons/<slug>/`)
 
+This is the single source of truth. Every entry is tagged **(required)** or
+**(optional)**. `addon.json` is the ONLY file required in every addon; beyond it,
+include just the block for your addon **type** (`command`/`skill`, `mcp`, `tool`,
+or `template`) — and within that block honor the tags.
+
 ```
 addons/<slug>/
-├── addon.json                 # REQUIRED — the manifest (see below)
-├── command/
-│   └── COMMAND.md             # the /<cmd> trigger (frontmatter name == <cmd>)
-├── skill/                     # command/skill addons
-│   ├── SKILL.md               # activation; points at okf/
-│   └── okf/
-│       ├── index.md           # carries `okf_version: "0.1"`
-│       ├── log.md             # change history (no frontmatter)
-│       ├── overview.md · api.md · rules.md   # concept files (each has `type:`)
-│       └── playbooks/         # index.md (no frontmatter) + guides
-├── mcp/                       # mcp addons only
-│   └── server.json            # one `mcpServers` entry, keyed by slug
-├── tools/                     # tool addons only
-└── template/                  # template addons only — the scaffold to generate
+├── addon.json                     (required)  — the manifest (see below); the ONLY always-required file
+│
+│   ▼ include the block(s) for your addon TYPE — command/skill · mcp · tool · template
+│
+├── command/                                   — command/skill addons
+│   └── COMMAND.md                 (required)  — the /<cmd> trigger (frontmatter name == <cmd>)
+├── skill/                                     — command/skill addons
+│   ├── SKILL.md                   (required)  — activation; points at okf/
+│   └── okf/                       (required)  — OKF knowledge; installs to ~/.aefos/skills/<slug>/
+│       ├── index.md               (required)  — main navigation index (carries okf_version: "0.1")
+│       ├── log.md                 (required)  — chronological update history (no frontmatter)
+│       ├── overview.md            (optional)  — introduction / high-level overview   (has `type:`)
+│       ├── api.md                 (optional)  — technical specs: APIs, MCPs, commands (has `type:`)
+│       ├── rules.md               (optional)  — rules, conventions, constraints       (has `type:`)
+│       └── playbooks/             (optional)  — step-by-step practical guides
+│           ├── index.md           (optional)  — subfolder index (no frontmatter)
+│           ├── troubleshooting.md (optional)  — how to resolve common errors
+│           └── quickstart.md      (optional)  — quick-start guide
+├── mcp/                                        — mcp addons only
+│   └── server.json                (required)  — one `mcpServers` entry, keyed by slug
+├── tools/                         (required)  — tool addons only — the tool artifacts
+└── template/                      (required)  — template addons only — the scaffold to generate
 ```
 
-Only `addon.json` is mandatory; include the folders your addon type needs.
-
-### The installed skill layout (`~/.aefos/skills/<addon-slug>/`)
-
-For a `command`/`skill` addon, the `skill/` portion of the bundle installs under
-the user's `~/.aefos/skills/<addon-slug>/` and follows the OKF
-([Open Knowledge Format](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md))
-layout below. Each entry is tagged **(required)** or **(optional)**:
-
-```
-~/.aefos/skills/<addon-slug>/
-├── SKILL.md            (required)  — trigger/activation file for the skill in Aefos
-└── okf/                (required)  — OKF knowledge directory (universal across projects)
-    ├── index.md        (required)  — main navigation index (carries okf_version)
-    ├── log.md          (required)  — chronological update history (no frontmatter)
-    ├── overview.md     (optional)  — introduction and high-level overview
-    ├── api.md          (optional)  — technical specs: APIs, MCPs or commands
-    ├── rules.md        (optional)  — rules, conventions and constraints for the AI
-    └── playbooks/       (optional)  — step-by-step practical guides
-        ├── index.md          (optional) — subfolder index (no frontmatter)
-        ├── troubleshooting.md (optional) — how to resolve common errors
-        └── quickstart.md      (optional) — quick-start guide
-```
-
-**Required for a command/skill addon:** `SKILL.md`, `okf/`, `okf/index.md`,
-`okf/log.md`. **Everything else is optional** — recommended for quality, but an
-addon is valid without them.
-
-Note this is only the `skill/` portion. The `command/COMMAND.md` (the `/trigger`)
-and the `addon.json` manifest **remain required at the bundle root** as documented
-above — this tree does not replace them.
+The `skill/okf/` subtree is exactly what installs to `~/.aefos/skills/<slug>/` for
+`command`/`skill` addons, following the OKF
+([Open Knowledge Format](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md)).
+**(optional)** entries are recommended for quality but an addon is valid without
+them.
 
 ### `addon.json`
 
