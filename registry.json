@@ -4,12 +4,12 @@
     {
       "slug": "desktop",
       "name": "Desktop MCP",
-      "version": "0.3.0",
-      "description": "Desktop automation MCP for the AI agent: enumerate/inspect windows and UI-Automation element trees, per-window screenshots the vision model sees (PrintWindow, never steals focus), AND guarded write actions - invoke an element, set text, focus, move - gated by an exe-path scope allow-list + off-LLM host input consent, with UIA element-targeting (no synthetic mouse/keyboard), a TOCTOU re-check, a shell/terminal typing ban, and an append-only audit. Privacy redaction of sensitive apps. Ships its own AefosDesktopMcp.exe.",
+      "version": "0.4.0",
+      "description": "Desktop automation MCP for the AI agent: enumerate/inspect windows and UI-Automation element trees, per-window screenshots the vision model sees (PrintWindow, never steals focus), guarded write actions (invoke / set text / focus / move), AND destructive actions (close window, kill process) that require a LIVE HUMAN to physically confirm on a trusted window which rejects synthesized/injected input, so the agent can never self-approve. All gated by an exe-path scope allow-list + off-LLM host input consent, with UIA element-targeting (no synthetic mouse/keyboard), a TOCTOU re-check, a shell/terminal typing ban, and an append-only audit. Privacy redaction of sensitive apps. Ships its own AefosDesktopMcp.exe.",
       "type": "mcp",
       "trust": "official",
-      "url": "https://github.com/ModernDelphiWorks/Aefos-Addons/releases/download/desktop-0.3.0/desktop-0.3.0.zip",
-      "sha256": "5ce6072cb078a8fb1bbaa7123e055674e091f48d0ce31c804ae7d85e67e09fb2",
+      "url": "https://github.com/ModernDelphiWorks/Aefos-Addons/releases/download/desktop-0.4.0/desktop-0.4.0.zip",
+      "sha256": "76d1344f9bdeed8c40ce226b1f0210a73c471b3178f87954934179e234155194",
       "requirements": {
         "aefos_version": ">=0.30.0"
       }
