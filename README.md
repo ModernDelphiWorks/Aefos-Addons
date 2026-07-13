@@ -21,15 +21,22 @@ this README is the contract.
 An addon is a small bundle whose entry point is usually a global **slash
 command** (`/janus`, `/mvc`, …). When you type it in Aefos chat, the command's
 prompt tells the model to read the bundled **skill** and its **OKF** knowledge,
-turning the assistant into a specialist. Addons can also ship an **MCP server**,
-a **tool**, or a **project template**.
+turning the assistant into a specialist. Addons can also ship an **MCP server**
+or a **tool**.
+
+There are **three types**:
 
 | Type | Needs OKF? | Ships | What it does |
 |------|-----------|-------|--------------|
 | `command` | **yes** | `command/` + `skill/okf/` | a domain specialist (e.g. an ORM, a framework, a workflow) |
 | `mcp` | no | an `mcpServers` fragment | a Model Context Protocol server (its tools self-describe) |
 | `tool` | no | a runnable tool (e.g. Python) | a callable capability |
-| `template` | no | a `template/` scaffold | a project/code template you can generate and customise (e.g. an MVC layout) |
+
+> **Templates are NOT a type.** A `command`/`skill` addon may carry an optional
+> **`templates/`** folder — project/code scaffolds it generates (e.g. an MVC
+> layout). It is content the command owns, never installed on its own: there is
+> **no `aefos install <template>`**. The command's `COMMAND.md` (or the OKF)
+> says where each template is and when to use it. See the anatomy below.
 
 > **Why the OKF rule?** OKF ([Open Knowledge Format](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md))
 > is knowledge *for the model to read*. A `command`/`skill` is knowledge, so it
@@ -42,19 +49,21 @@ a **tool**, or a **project template**.
 
 This is the single source of truth. Every entry is tagged **(required)** or
 **(optional)**. `addon.json` is the ONLY file required in every addon; beyond it,
-include just the block for your addon **type** (`command`/`skill`, `mcp`, `tool`,
-or `template`) — and within that block honor the tags.
+include just the block for your addon **type** (`command`/`skill`, `mcp`, or
+`tool`) — and within that block honor the tags. The install lays down **whatever
+folders are present**, so an optional block (like `templates/`) is truly
+independent: include it or not, the rest installs the same.
 
 ```
 addons/<slug>/
 ├── addon.json                     (required)  — the manifest (see below); the ONLY always-required file
 │
-│   ▼ include the block(s) for your addon TYPE — command/skill · mcp · tool · template
+│   ▼ include the block(s) for your addon TYPE — command/skill · mcp · tool
 │
 ├── command/                                   — command/skill addons
 │   └── COMMAND.md                 (required)  — the /<cmd> trigger (frontmatter name == <cmd>)
 ├── skill/                                     — command/skill addons
-│   ├── SKILL.md                   (required)  — activation; points at okf/
+│   ├── SKILL.md                   (required)  — activation; points at okf/ (and any templates/)
 │   └── okf/                       (required)  — OKF knowledge; installs to ~/.aefos/skills/<slug>/
 │       ├── index.md               (required)  — main navigation index (carries okf_version: "0.1")
 │       ├── log.md                 (required)  — chronological update history (no frontmatter)
@@ -65,10 +74,13 @@ addons/<slug>/
 │           ├── index.md           (optional)  — subfolder index (no frontmatter)
 │           ├── troubleshooting.md (optional)  — how to resolve common errors
 │           └── quickstart.md      (optional)  — quick-start guide
+├── templates/                     (optional)  — scaffolds a command/skill GENERATES (NOT a type);
+│   └── <name>/                                  installs to ~/.aefos/templates/<slug>/. Present or not,
+│       ├── template.json                        the addon is valid either way. The COMMAND.md/OKF
+│       └── {{Name}}*.*                          references it (where + when/how to use); {{...}} rendered on use.
 ├── mcp/                                        — mcp addons only
 │   └── server.json                (required)  — one `mcpServers` entry, keyed by slug
-├── tools/                         (required)  — tool addons only — the tool artifacts
-└── template/                      (required)  — template addons only — the scaffold to generate
+└── tools/                         (required)  — tool addons only — the tool artifacts
 ```
 
 The `skill/okf/` subtree is exactly what installs to `~/.aefos/skills/<slug>/` for
@@ -103,8 +115,9 @@ them.
 
 - **`install`** maps each bundle folder (`source`, repo-relative) to where it
   lands under the user's `~/.aefos/` (`target_path`). Keys are by kind:
-  `commands` / `skills` / `tools` / `mcp` / `templates`. A `template` addon, for
-  example, maps `addons/<slug>/template/` → `templates/<slug>/`.
+  `commands` / `skills` / `tools` / `mcp` / `templates`. A `command` that carries
+  scaffolds maps its `addons/<slug>/templates/` → `templates/<slug>/` (the
+  `templates` key is optional — omit it when the addon has no `templates/`).
 - **`command`** is the chat trigger. The `COMMAND.md` frontmatter `name` **must
   equal** the command folder name (so `commands/janus/COMMAND.md` → `name: janus`
   → `/janus`).
@@ -134,18 +147,33 @@ them.
 
 ---
 
-## How install works
+## How install & update work
 
-`aefos install <slug>` reads `registry.json`, downloads the pinned
-`<slug>-<version>.zip` from the matching Release, **verifies its `sha256`**, and
-extracts it under `~/.aefos/` per the `install` mappings. `aefos list` /
-`aefos update <slug>` / `aefos uninstall <slug>` manage what's installed.
+`registry.json` is the index — it holds the **current** entry for each slug. The
+CLI always brings that current build; you never pick a version.
+
+```
+aefos install <slug>     # download the current build, verify sha256, lay it under ~/.aefos/
+aefos update <slug>      # refresh to the current build; a no-op ("already current") if unchanged
+aefos update             # update ALL installed addons
+aefos update --check     # dry-run: report what would update, install nothing
+aefos list               # list what's installed
+aefos uninstall <slug>   # remove it
+```
+
+`aefos install` reads `registry.json`, downloads the `<slug>` zip from its
+Release, **verifies its `sha256`**, and extracts **whatever folders it carries**
+under `~/.aefos/` per the `install` mappings — an optional block that isn't there
+is simply skipped. `update` compares the installed `sha256` with the registry's:
+same ⇒ nothing to do; different ⇒ clean-replace with the current build.
 
 ## Trust & security
 
-- Every release zip is **checksummed** (`sha256` in `registry.json`); a mismatch
-  aborts the install.
-- Addons are **version-pinned** — never a moving branch.
+- Every zip is **checksummed** (`sha256` in `registry.json`); a mismatch aborts
+  the install. The `sha256` is also the update identity — how the CLI knows your
+  copy differs from the current build.
+- `requirements.aefos_version` gates install/update against the user's Aefos
+  version — an addon that needs a newer Aefos is held back, never forced.
 - `official` addons are maintained here; `community` addons that ship runnable
   code (`mcp`/`tool`) require the user's explicit consent (`--yes`) to install.
 
