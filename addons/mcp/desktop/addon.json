@@ -1,0 +1,14 @@
+{
+  "slug": "desktop",
+  "version": "0.4.0",
+  "name": "Desktop MCP",
+  "description": "Desktop automation MCP for the AI agent: enumerate/inspect windows and UI-Automation element trees, per-window screenshots the vision model sees (PrintWindow, never steals focus), guarded write actions — invoke an element, set text, focus, move — AND destructive actions (close window, kill process) that require a LIVE HUMAN to physically confirm on a trusted window which rejects synthesized/injected input, so the agent can never self-approve. All gated by an exe-path scope allow-list + off-LLM host input consent, with UIA element-targeting (no synthetic mouse/keyboard), a TOCTOU re-check, a shell/terminal typing ban, and an append-only audit. Privacy redaction of sensitive apps. Ships its own AefosDesktopMcp.exe.",
+  "trust": "official",
+  "requirements": { "aefos_version": ">=0.30.0" },
+  "artifacts": {
+    "command": false,
+    "skill": false,
+    "mcp": true,
+    "tools": true
+  }
+}

@@ -14,14 +14,14 @@
     "commands": [
       {
         "target_path": "commands/dataengine/",
-        "source": "addons/dataengine/command/",
+        "source": "addons/command/dataengine/command/",
         "name": "dataengine"
       }
     ],
     "skills": [
       {
         "target_path": "skills/delphi-dataengine-specialist/",
-        "source": "addons/dataengine/skill/",
+        "source": "addons/command/dataengine/skill/",
         "name": "delphi-dataengine-specialist"
       }
     ]

@@ -14,14 +14,14 @@
     "commands": [
       {
         "target_path": "commands/inject/",
-        "source": "addons/injectcontainer/command/",
+        "source": "addons/command/injectcontainer/command/",
         "name": "inject"
       }
     ],
     "skills": [
       {
         "target_path": "skills/delphi-injectcontainer-specialist/",
-        "source": "addons/injectcontainer/skill/",
+        "source": "addons/command/injectcontainer/skill/",
         "name": "delphi-injectcontainer-specialist"
       }
     ]
