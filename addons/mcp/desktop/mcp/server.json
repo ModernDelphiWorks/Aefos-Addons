@@ -1,0 +1,7 @@
+{
+  "aefos-desktop": {
+    "command": "${ADDON_ROOT}\\tools\\AefosDesktopMcp.exe",
+    "args": [],
+    "env": {}
+  }
+}

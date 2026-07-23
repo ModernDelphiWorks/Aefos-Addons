@@ -14,14 +14,14 @@
     "commands": [
       {
         "target_path": "commands/fluentsql/",
-        "source": "addons/fluentsql/command/",
+        "source": "addons/command/fluentsql/command/",
         "name": "fluentsql"
       }
     ],
     "skills": [
       {
         "target_path": "skills/delphi-fluentsql-specialist/",
-        "source": "addons/fluentsql/skill/",
+        "source": "addons/command/fluentsql/skill/",
         "name": "delphi-fluentsql-specialist"
       }
     ]

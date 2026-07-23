@@ -10,9 +10,19 @@ aefos install <slug>
 ```
 
 This repository is the **source of truth**: each addon lives as a folder under
-`addons/`, and `registry.json` indexes every published version. **Other
-developers are welcome to publish their own addons here via Pull Request** —
-this README is the contract.
+`addons/<type>/` — the catalogue is organized by type so the tree is legible at a
+glance:
+
+```
+addons/
+├── command/   — command/skill specialists (janus-orm, nidus, colligo, …)
+├── mcp/        — MCP servers (desktop, …)
+└── tool/       — runnable tools
+```
+
+`registry.json` indexes every published version (its `type` field matches the
+folder). **Other developers are welcome to publish their own addons here via
+Pull Request** — this README is the contract.
 
 ---
 
@@ -45,7 +55,10 @@ There are **three types**:
 
 ---
 
-## Anatomy of a bundle (`addons/<slug>/`)
+## Anatomy of a bundle (`addons/<type>/<slug>/`)
+
+Each addon folder sits under its **type** directory — `addons/command/<slug>/`,
+`addons/mcp/<slug>/`, or `addons/tool/<slug>/`.
 
 This is the single source of truth. Every entry is tagged **(required)** or
 **(optional)**. `addon.json` is the ONLY file required in every addon; beyond it,
@@ -55,7 +68,7 @@ folders are present**, so an optional block (like `templates/`) is truly
 independent: include it or not, the rest installs the same.
 
 ```
-addons/<slug>/
+addons/<type>/<slug>/
 ├── addon.json                     (required)  — the manifest (see below); the ONLY always-required file
 │
 │   ▼ include the block(s) for your addon TYPE — command/skill · mcp · tool
@@ -104,10 +117,10 @@ them.
   "command": "/janus",
   "install": {
     "commands": [
-      { "name": "janus", "source": "addons/janus-orm/command/", "target_path": "commands/janus/" }
+      { "name": "janus", "source": "addons/command/janus-orm/command/", "target_path": "commands/janus/" }
     ],
     "skills": [
-      { "name": "delphi-janus-specialist", "source": "addons/janus-orm/skill/", "target_path": "skills/delphi-janus-specialist/" }
+      { "name": "delphi-janus-specialist", "source": "addons/command/janus-orm/skill/", "target_path": "skills/delphi-janus-specialist/" }
     ]
   }
 }
@@ -116,7 +129,7 @@ them.
 - **`install`** maps each bundle folder (`source`, repo-relative) to where it
   lands under the user's `~/.aefos/` (`target_path`). Keys are by kind:
   `commands` / `skills` / `tools` / `mcp` / `templates`. A `command` that carries
-  scaffolds maps its `addons/<slug>/templates/` → `templates/<slug>/` (the
+  scaffolds maps its `addons/command/<slug>/templates/` → `templates/<slug>/` (the
   `templates` key is optional — omit it when the addon has no `templates/`).
 - **`command`** is the chat trigger. The `COMMAND.md` frontmatter `name` **must
   equal** the command folder name (so `commands/janus/COMMAND.md` → `name: janus`
@@ -128,7 +141,7 @@ them.
 ## Publishing your addon (Pull Request)
 
 1. **Fork** this repo.
-2. Add your bundle under **`addons/<your-slug>/`** following the layout above.
+2. Add your bundle under **`addons/<type>/<your-slug>/`** (`command/`, `mcp/`, or `tool/`) following the layout above.
 3. For a `command`/`skill` addon, ground the OKF in real sources — **cite
    `file:line`**; don't invent APIs. The `rules.md` errata (real gotchas + the
    case that caused them) is the most valuable part.

@@ -14,14 +14,14 @@
     "commands": [
       {
         "target_path": "commands/janus/",
-        "source": "addons/janus-orm/command/",
+        "source": "addons/command/janus-orm/command/",
         "name": "janus"
       }
     ],
     "skills": [
       {
         "target_path": "skills/delphi-janus-specialist/",
-        "source": "addons/janus-orm/skill/",
+        "source": "addons/command/janus-orm/skill/",
         "name": "delphi-janus-specialist"
       }
     ]

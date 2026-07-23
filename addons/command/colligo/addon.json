@@ -14,14 +14,14 @@
     "commands": [
       {
         "target_path": "commands/colligo/",
-        "source": "addons/colligo/command/",
+        "source": "addons/command/colligo/command/",
         "name": "colligo"
       }
     ],
     "skills": [
       {
         "target_path": "skills/delphi-colligo-specialist/",
-        "source": "addons/colligo/skill/",
+        "source": "addons/command/colligo/skill/",
         "name": "delphi-colligo-specialist"
       }
     ]

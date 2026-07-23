@@ -14,14 +14,14 @@
     "commands": [
       {
         "target_path": "commands/metadbdiff/",
-        "source": "addons/metadbdiff/command/",
+        "source": "addons/command/metadbdiff/command/",
         "name": "metadbdiff"
       }
     ],
     "skills": [
       {
         "target_path": "skills/delphi-metadbdiff-specialist/",
-        "source": "addons/metadbdiff/skill/",
+        "source": "addons/command/metadbdiff/skill/",
         "name": "delphi-metadbdiff-specialist"
       }
     ]

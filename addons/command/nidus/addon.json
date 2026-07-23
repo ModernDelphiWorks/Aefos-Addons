@@ -14,14 +14,14 @@
     "commands": [
       {
         "target_path": "commands/nidus/",
-        "source": "addons/nidus/command/",
+        "source": "addons/command/nidus/command/",
         "name": "nidus"
       }
     ],
     "skills": [
       {
         "target_path": "skills/delphi-nidus-specialist/",
-        "source": "addons/nidus/skill/",
+        "source": "addons/command/nidus/skill/",
         "name": "delphi-nidus-specialist"
       }
     ]

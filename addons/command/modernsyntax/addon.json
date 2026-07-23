@@ -14,14 +14,14 @@
     "commands": [
       {
         "target_path": "commands/modernsyntax/",
-        "source": "addons/modernsyntax/command/",
+        "source": "addons/command/modernsyntax/command/",
         "name": "modernsyntax"
       }
     ],
     "skills": [
       {
         "target_path": "skills/delphi-modernsyntax-specialist/",
-        "source": "addons/modernsyntax/skill/",
+        "source": "addons/command/modernsyntax/skill/",
         "name": "delphi-modernsyntax-specialist"
       }
     ]
