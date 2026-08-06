@@ -1,0 +1,25 @@
+# The catalogue gate.
+#
+# Every Pull Request here comes from someone who read the README and followed a
+# checklist. This workflow is what makes that checklist true: it runs the same
+# validator a contributor can run locally, so "it passed for me" and "it passed
+# in review" are the same statement.
+
+name: validate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  catalogue:
+    name: Validate the catalogue
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Validate bundles and registry.json
+        shell: pwsh
+        run: pwsh -File scripts/validate-catalogue.ps1

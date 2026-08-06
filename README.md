@@ -145,9 +145,20 @@ them.
 3. For a `command`/`skill` addon, ground the OKF in real sources — **cite
    `file:line`**; don't invent APIs. The `rules.md` errata (real gotchas + the
    case that caused them) is the most valuable part.
-4. Open a **Pull Request**. On review + merge, the maintainer tags a release and
-   the CI packs your `<slug>-<version>.zip`, computes its `sha256`, and updates
-   `registry.json` — no manual edits to `registry.json` needed.
+4. Open a **Pull Request**. CI runs
+   [`scripts/validate-catalogue.ps1`](scripts/validate-catalogue.ps1) against it —
+   the checklist below is what that script actually checks, so you can run it
+   yourself before pushing:
+
+   ```
+   pwsh -File scripts/validate-catalogue.ps1
+   ```
+
+5. On review + merge, **the maintainer publishes it**: packs the zip, cuts the
+   release, and points `registry.json` at it (see *Releasing* below). Don't edit
+   `registry.json` by hand in your PR for a new addon — say so in the PR body and
+   the maintainer adds the entry, because the `sha256` can only be computed from
+   the packed zip.
 
 **Checklist before you open the PR**
 - [ ] `addon.json` present, `slug` unique, `version` set.
@@ -157,6 +168,43 @@ them.
       has `okf_version`; `log.md` and `playbooks/index.md` have no frontmatter.
 - [ ] No broken relative links.
 - [ ] `mcp`/`tool` that runs third-party code: say so plainly in the description.
+
+---
+
+## Releasing (maintainer)
+
+Publishing is two commands, and neither number in `registry.json` is typed by
+hand — the version comes from `addon.json` and the `sha256` from the packed zip.
+
+```powershell
+# 1. pack the bundle and point registry.json at the release it predicts
+pwsh -File scripts\pack-addon.ps1 -Slug <slug> -UpdateRegistry
+
+# ...for an addon that ships a compiled artifact, bundle it at pack time:
+pwsh -File scripts\pack-addon.ps1 -Slug desktop -UpdateRegistry `
+     -Binaries "$env:USERPROFILE\.aefos\addons\desktop\tools"
+
+# 2. cut the release the registry now points at, with the zip as its asset
+gh release create <slug>-<version> dist\<slug>-<version>.zip --repo ModernDelphiWorks/Aefos-Addons
+```
+
+**Cut the release before merging the registry change.** `registry.json` on `main`
+is what every CLI reads; merging a URL whose release does not exist yet breaks
+`aefos install` for everyone in between.
+
+**Binaries are never committed.** A compiled artifact would make the catalogue
+unreviewable and every clone would carry it forever, so `dist/` and `*.exe` are
+gitignored: the binary enters at pack time and lives only as a release asset.
+
+Two tag conventions are in use, and both are valid:
+
+| Tag | For | Example |
+|---|---|---|
+| `<slug>-<version>` | an addon that releases on its own cadence | `desktop-0.4.1` |
+| `v<version>` | a batch of addons published together | `v1.0.1` (the nine specialists) |
+
+Either way the **asset name is always `<slug>-<version>.zip`** — that is what the
+CLI downloads and identifies the build by.
 
 ---
 
