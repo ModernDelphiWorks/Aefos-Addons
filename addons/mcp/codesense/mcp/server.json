@@ -1,7 +1,0 @@
-{
-  "codesense": {
-    "command": "${ADDON_ROOT}\\tools\\codesense-server.exe",
-    "args": [],
-    "env": {}
-  }
-}
