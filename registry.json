@@ -130,6 +130,19 @@
       "requirements": {
         "aefos_version": ">=0.30.0"
       }
+    },
+    {
+      "slug": "codesense",
+      "name": "Aefos CodeSense",
+      "version": "0.1.0",
+      "description": "Delphi code intelligence as MCP tools: what a type offers, what an expression before a dot resolves to, and the exact edits that implement the interface members a class owes. Ships its own codesense-server.exe.",
+      "type": "mcp",
+      "trust": "official",
+      "url": "https://github.com/ModernDelphiWorks/Aefos-Addons/releases/download/codesense-0.1.0/codesense-0.1.0.zip",
+      "sha256": "08038984663f7c388b5bf2e7dd1e292a9ad502822f883e49f7ffef4c314ff05d",
+      "requirements": {
+        "aefos_version": ">=0.30.0"
+      }
     }
   ]
 }
